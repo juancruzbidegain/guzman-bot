@@ -38,6 +38,9 @@ async def btc(ctx):
 	res = await getValueBTCtoUSD()
 	await ctx.send(f'Estimado, el valor del instumento fugador es: {res} USD'.format(res))
 
+@bot.command()
+async def meme(ctx):
+	await ctx.send("Mi mejor amigo", file=discord.File("meme.jpg"))
 
 
 
