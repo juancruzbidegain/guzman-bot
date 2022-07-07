@@ -5,6 +5,7 @@ import os
 
 
 from dolar import getValueUsd
+from btc import getValueBTCtoUSD
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -22,17 +23,20 @@ async def  ping(ctx):
 	await ctx.send('Pong')
 
 @bot.command()
-async def dolar(ctx, arg):
+async def dolar(ctx):
 	res = await getValueUsd()
-	await ctx.send(f'Estimado el valor del dolar informal es: {res}'.format(res))
-	
-	
-    
+	await ctx.send(f'Estimado, el valor del dolar informal es: {res}'.format(res))
 
 
 @bot.command()
-async def test(ctx, *args):
-    await ctx.send('{} arguments: {}'.format(len(args), ', '.join(args)))
+async def bitcoin(ctx):
+	res = await getValueBTCtoUSD()
+	await ctx.send(f'Estimado, el valor del instumento fugador es: {res} USD'.format(res))
+
+@bot.command()
+async def btc(ctx):
+	res = await getValueBTCtoUSD()
+	await ctx.send(f'Estimado, el valor del instumento fugador es: {res} USD'.format(res))
 
 
 
